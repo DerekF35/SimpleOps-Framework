@@ -20,12 +20,14 @@ function run_cmd(){
 	if [ "${1}" == "local" ]
 	then
 		cd ${SCRIPT_LOCATION}
+		${LOCAL_PRE_COMMAND}
 		eval "${2}"
 		writeExitCode "$?"
 	else
 		source ${REMOTE_SERVER_CONFIGS}/${1}.sh
 		${SSH_COMMAND} <<ENDSSH
 		cd ${SCRIPT_LOCATION}
+		${PRE_COMMAND}
 		echo "Beginning command run. (${2})..."
 		echo ""
 		${2}
