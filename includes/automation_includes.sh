@@ -1,5 +1,4 @@
 function run(){
-	mkdir -p $(dirname "$0")/logs
 	log=${LOG_LOCATION}/menu_$(date ${LOG_DATE_FORMAT} )_${1}.log
 	echo "Log: $log" |& tee -a $log
 	echo $(printf "\"%s\" " "${@}") |& tee -a $log
@@ -9,7 +8,6 @@ function run(){
 }
 
 function runScript(){
-	mkdir -p $(dirname "$0")/logs
 	log=${LOG_LOCATION}/cron_$(date ${LOG_DATE_FORMAT} )_${1}.log
 	echo "Log: $log" |& tee -a $log
 	echo $(printf "\"%s\" " "${@}") |& tee -a $log
