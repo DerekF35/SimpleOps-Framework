@@ -17,7 +17,6 @@ function runScript(){
 	run_cmd "${2}" "${3}" |& tee -a $log
 }
 
-
 function run_cmd(){
 	set +e
 	if [ "${1}" == "local" ]
@@ -29,9 +28,6 @@ function run_cmd(){
 		source ${REMOTE_SERVER_CONFIGS}/${1}.sh
 		${SSH_COMMAND} <<ENDSSH
 		cd ${SCRIPT_LOCATION}
-		echo "Updating scripts..."
-		git pull
-		echo ""
 		echo "Beginning command run. (${2})..."
 		echo ""
 		${2}
