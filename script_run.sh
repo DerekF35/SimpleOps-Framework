@@ -49,5 +49,5 @@ scriptExitCode="$(readExitCode)"
 case $NOTIFICATION in
 	none) echo "No notifcation set";;
 	all) slackNotify "${JOBNAME}: $(getResultText $scriptExitCode)";;
-	failure) if [ "${1}" == "1" ]; then slackNotify "${JOBNAME}: $(getResultText $scriptExitCode)"; fi;;
+	failure) if [ "${scriptExitCode}" != "0" ]; then slackNotify "${JOBNAME}: $(getResultText $scriptExitCode)"; fi;;
 esac
