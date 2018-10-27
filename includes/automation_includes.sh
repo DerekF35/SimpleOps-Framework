@@ -71,3 +71,6 @@ function readExitCode(){
 	echo $(cat $EXIT_CODE_FILE)
 }
 
+function getEnvConfig(){
+	cat ${REMOTE_SERVER_CONFIGS}/${1}.sh | sed -n -e "s/${2}=\(.*\)/\1/p"
+}
