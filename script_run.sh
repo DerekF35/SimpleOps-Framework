@@ -50,8 +50,8 @@ my_log_link=${WEB_LOCATION}/$( readDataValue ${MY_DATA_FILE} LOG )
 
 case $NOTIFICATION in
 	none) echo "No notifcation set";;
-	all) slackNotify "${JOBNAME}: $(getResultText $scriptExitCode) \nLog: ${my_log_link}";;
-	failure) if [ "${scriptExitCode}" != "0" ]; then slackNotify "${JOBNAME}: $(getResultText $scriptExitCode) \nLog: ${my_log_link}"; fi;;
+	all) slackNotify ${JOBNAME} "$( getResultText $scriptExitCode )" ${my_log_link};;
+	failure) if [ "${scriptExitCode}" != "0" ]; then slackNotify ${JOBNAME} "$(getResultText $scriptExitCode )" ${my_log_link}; fi;;
 esac
 
 rm -f ${MY_DATA_FILE}
