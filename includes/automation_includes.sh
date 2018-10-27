@@ -1,5 +1,8 @@
 function run(){
-	log=${LOG_LOCATION}/menu_$(date ${LOG_DATE_FORMAT} )_${1}.log
+	mkdir -p ${LOG_LOCATION}/${1}/
+	logfilename=${1}/menu_$(date ${LOG_DATE_FORMAT} )_${1}.log
+	log=${LOG_LOCATION}/${logfilename}
+	writeDataValue ${MY_DATA_FILE} LOG ${logfilename}
 	echo "Log: $log" |& tee -a $log
 	echo $(printf "\"%s\" " "${@}") |& tee -a $log
 	echo "------------" |& tee -a $log
@@ -8,7 +11,10 @@ function run(){
 }
 
 function runScript(){
-	log=${LOG_LOCATION}/cron_$(date ${LOG_DATE_FORMAT} )_${1}.log
+	mkdir -p ${LOG_LOCATION}/${1}/
+	logfilename=${1}/cron_$(date ${LOG_DATE_FORMAT} )_${1}.log
+	log=${LOG_LOCATION}/${logfilename}
+	writeDataValue ${MY_DATA_FILE} LOG ${logfilename}
 	echo "Log: $log" |& tee -a $log
 	echo $(printf "\"%s\" " "${@}") |& tee -a $log
 	echo "------------" |& tee -a $log

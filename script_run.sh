@@ -46,8 +46,12 @@ if [ "$arg_chk_pass" != "1" ]; then exit 1; fi
 runScript "$JOBNAME" "$SERVER" "$COMMAND"
 scriptExitCode="$(readExitCode)"
 
+my_log_link=${WEB_LOCATION}/$( readDataValue ${MY_DATA_FILE} LOG )
+
 case $NOTIFICATION in
 	none) echo "No notifcation set";;
-	all) slackNotify "${JOBNAME}: $(getResultText $scriptExitCode)";;
-	failure) if [ "${scriptExitCode}" != "0" ]; then slackNotify "${JOBNAME}: $(getResultText $scriptExitCode)"; fi;;
+	all) slackNotify "${JOBNAME}: $(getResultText $scriptExitCode) \nLog: ${my_log_link}";;
+	failure) if [ "${scriptExitCode}" != "0" ]; then slackNotify "${JOBNAME}: $(getResultText $scriptExitCode) \nLog: ${my_log_link}"; fi;;
 esac
+
+rm -f ${MY_DATA_FILE}

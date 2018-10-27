@@ -5,7 +5,12 @@ CHANNEL=
 USERNAME=
 EMOJI=
 
-LOCAL_SCRIPT_LOCATION=$(dirname $0)
+SCRIPT_LOCATION=$(dirname $0)
+
 DEFAULT_JOB_FILE=$(dirname $0)/jobs.tab
-LOG_LOCATION=$(dirname $0)/logs/
+
+LOG_BASE=$(dirname $0)
+LOG_DIR=logs
+WEB_SERVER=http:/localhost
+
 REMOTE_SERVER_CONFIGS=$(dirname $0)/remote_servers/

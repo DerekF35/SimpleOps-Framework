@@ -36,7 +36,7 @@ done
 # make a copy of the job file so it doesn't change while program is running
 cp ${MENU_JOB_FILE} ${MENUJOBCONFIG_TMP}
 
-trap "rm $OUTPUT; rm $INPUT; rm $MENU_TMPk exit" SIGHUP SIGINT SIGTERM
+trap "rm $OUTPUT; rm $INPUT; rm $MENU_TMP; $MY_DATA_FILE; exit" SIGHUP SIGINT SIGTERM
 
 function pause(){
 	read -p "Press any key to continue..."

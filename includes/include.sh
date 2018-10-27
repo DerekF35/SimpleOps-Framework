@@ -16,9 +16,13 @@ MENU_JOB_FILE=${MENU_JOB_LOCATION}/${MENU_JOB_FILENAME}
 LOG_DATE_FORMAT='+%Y%m%d_%H%M%S'
 EXIT_CODE_FILE=$(mktemp)
 
-
+WEB_LOCATION="${WEB_SERVER}/${LOG_DIR}"
+LOG_LOCATION=${LOG_BASE}/${LOG_DIR}
 
 source $(dirname "$0")/includes/automation_includes.sh
 source $(dirname "$0")/includes/notification.sh
+source $(dirname "$0")/includes/data_file.sh
+
+MY_DATA_FILE=$( createDataFile )
 
 mkdir -p ${LOG_LOCATION}
