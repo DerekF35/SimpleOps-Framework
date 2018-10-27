@@ -12,5 +12,7 @@ function slackNotify(){
 
 	PAYLOAD="payload={\"channel\": \"$CHANNEL\", \"username\": \"$USERNAME\", \"text\": \"$MSG\", \"icon_emoji\": \"$EMOJI\"}"
 
+	echo "Sending ${PAYLOAD} to ${WEBHOOK}"
+
 	curl -X POST --data-urlencode "$PAYLOAD" "$WEBHOOK"
 }
