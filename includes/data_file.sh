@@ -9,3 +9,5 @@ function writeDataValue(){
 function readDataValue(){
 	cat ${1} | sed -n -e "s/${2}=\(.*\)/\1/p"
 }
+
+MY_DATA_FILE=$( createDataFile )

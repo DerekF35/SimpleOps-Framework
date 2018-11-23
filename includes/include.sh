@@ -23,6 +23,4 @@ source $(dirname "$0")/includes/automation_includes.sh
 source $(dirname "$0")/includes/notification.sh
 source $(dirname "$0")/includes/data_file.sh
 
-MY_DATA_FILE=$( createDataFile )
-
 mkdir -p ${LOG_LOCATION}
