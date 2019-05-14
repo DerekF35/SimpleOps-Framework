@@ -39,7 +39,7 @@ function run_cmd(){
 		echo
 		echo "################################"
 		echo " Server: ${1}"
-		echo " Server: ${2}"
+		echo " Command: ${2}"
 		echo "################################"
 		echo
 		source ${REMOTE_SERVER_CONFIGS}/${1}.sh
