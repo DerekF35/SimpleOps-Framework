@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-source $(dirname "$0")/includes/include.sh
+source $(dirname "$(readlink -f "$0")")/includes/include.sh
 
 INPUT=$(mktemp)
 OUTPUT=$(mktemp)

@@ -1,5 +1,5 @@
 #!/bin/bash
-source $(dirname "$0")/includes/include.sh
+source $(dirname "$(readlink -f "$0")")/includes/include.sh
 
 function clean {
   rm -f $EXIT_CODE_FILE
