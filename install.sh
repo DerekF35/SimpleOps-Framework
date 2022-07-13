@@ -7,12 +7,15 @@ echo "CHECKING PATH FOR ${INSTALL_LOCATION}"
 
 if [[ ":$PATH:" != *":${INSTALL_LOCATION}:"* ]]; then
     echo "ERROR: INSTALL LOCATION NOT FOUND IN PATH"
+    echo $PATH
     exit 1
 fi
 
 OPS_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 set -x
+
+chmod +x ${OPS_DIR}/*.sh
 
 mkdir -p ${INSTALL_LOCATION}
 
