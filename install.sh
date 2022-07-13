@@ -6,9 +6,8 @@ INSTALL_LOCATION=~/.local/bin
 echo "CHECKING PATH FOR ${INSTALL_LOCATION}"
 
 if [[ ":$PATH:" != *":${INSTALL_LOCATION}:"* ]]; then
-    echo "ERROR: INSTALL LOCATION NOT FOUND IN PATH"
+    echo "ERROR: INSTALL LOCATION NOT FOUND IN PATH.  Please fix this for this to fully work."
     echo $PATH
-    exit 1
 fi
 
 OPS_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
